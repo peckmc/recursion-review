@@ -29,7 +29,20 @@ var stringifyJSON = function(obj) {
       arrResult.push(stringifyJSON(obj[i]));
     }
     return '[' + (arrResult.join(',')) + ']';
+  } else if (type === 'object') {
+    var objResult = '{';
+    for (key in obj) {
+      if (typeof obj[key] !== 'undefined' && typeof obj[key] !== 'function') {
+        objResult += '"' + key + '":' + stringifyJSON(obj[key]) + ",";
+      }
+    }
+    if (objResult.length === 1) {
+      return objResult + '}';
+    }
+    objResult = objResult.slice(0, -1) + '}';
+    return objResult;
   }
+  // if type is an
 
   // if input is an object, iterate through it and recursively call the function on each value within it
   // same as above for an arrays
