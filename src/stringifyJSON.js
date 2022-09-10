@@ -42,10 +42,5 @@ var stringifyJSON = function(obj) {
     objResult = objResult.slice(0, -1) + '}';
     return objResult;
   }
-  // if type is an
-
-  // if input is an object, iterate through it and recursively call the function on each value within it
-  // same as above for an arrays
-
 
 };
